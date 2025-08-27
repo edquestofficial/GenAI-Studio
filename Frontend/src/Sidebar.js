@@ -65,7 +65,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
   ];
   const [projects, setProjects] = useState(projectsData);
 
-  const saveData = (project) => {
+  const passProject = (project) => {
     navigate(location.pathname, { state: project });
   };
 
@@ -92,7 +92,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
         {projects.map((project, i) => (
           <button
 			key={i}
-            onClick={() => saveData(project)}
+            onClick={() => passProject(project)}
             className="w-full flex items-center justify-between p-3 bg-gray-100 rounded-lg hover:bg-gray-200"
           >
             {project.name}

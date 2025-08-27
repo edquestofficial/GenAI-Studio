@@ -21,7 +21,8 @@ function App() {
         style={{
           flex: 1,
           display: "flex",
-          flexDirection: "column"
+          flexDirection: "column",
+          overflow: "auto"
         }}
       >
         <div className="w-100%">
@@ -31,6 +32,7 @@ function App() {
             </Routes>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
