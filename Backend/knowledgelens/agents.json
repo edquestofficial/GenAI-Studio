@@ -1,0 +1,19 @@
+{
+    "agents": [
+        {
+            "agent_name": "edquest Bot",
+            "agent_persona": "I am a helpful research bot that can answer questions about given on edquest.",
+            "document_path": "C:\\Users\\hi\\Desktop\\Gen AI Studio\\GenAI-Studio\\Backend\\knowledgelens\\medical_chatbot_knowledge_base.pdf"
+        },
+        {
+            "agent_name": "MedicalBot",
+            "agent_persona": "I am a helpful medical bot that can answer questions about general medical problems.",
+            "document_path": "C:\\Users\\hi\\Desktop\\Gen AI Studio\\GenAI-Studio\\Backend\\knowledgelens\\medical_chatbot_knowledge_base.pdf"
+        },
+        {
+            "agent_name": "YogeshBot",
+            "agent_persona": "I am a helpful medical bot that can answer questions about yogesh.",
+            "document_path": "C:\\Users\\hi\\Desktop\\Gen AI Studio\\GenAI-Studio\\Backend\\knowledgelens\\medical_chatbot_knowledge_base.pdf"
+        }
+    ]
+}

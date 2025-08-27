@@ -1,0 +1,16 @@
+[project]
+name = "knowledgelens"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "dotenv>=0.9.9",
+    "fastapi>=0.116.1",
+    "langchain-community>=0.3.29",
+    "langchain-huggingface>=0.3.1",
+    "pinecone>=7.3.0",
+    "pypdf>=6.0.0",
+    "pypdf2>=3.0.1",
+    "sentence-transformers>=5.1.0",
+]
