@@ -1,0 +1,7 @@
+"agents" = [
+  {
+    "agent_name": "HR Specific",
+    "agent_profile_image": "image_path",
+    "agent_persona": " ---- "
+  }
+]
