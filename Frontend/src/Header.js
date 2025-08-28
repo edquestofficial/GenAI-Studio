@@ -6,15 +6,27 @@ return (
 	<header className="flex justify-between items-center p-4 shadow-md bg-white">
 		{/* Logo Section */}
 		<div className="flex items-center space-x-2">
+			<img 
+					src="edquest.png" 
+					alt="Edquest Logo" 
+					className="h-15 w-12 object-contain" 
+  />
 			<h1 className="text-blue-500 text-xl font-bold italic">Edquest</h1>
 		</div>
 
 		{/* Navigation Links */}
-		<nav className="flex space-x-6 text-gray-700">
+		{/* <nav className="flex space-x-6 text-gray-700">
 			<Link to="/">Home</Link>
 			<Link to="/">Projects</Link>
 			<Link to="/">About</Link>
+		</nav> */}
+
+		<nav className="flex space-x-6 text-gray-700 font-bold">
+		<Link to="/" className="hover:underline">Home</Link>
+		<Link to="/" className="hover:underline">Projects</Link>
+		<Link to="/" className="hover:underline">About</Link>
 		</nav>
+
 
 		{/* Search and Profile Section */}
 		<div className="flex items-center space-x-4">

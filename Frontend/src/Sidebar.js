@@ -8,27 +8,27 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
 
   const projectsData = [
     {
-      name: "Mental Health Support",
+      name: "KnowledgeLens",
       src: "https://randomuser.me/api/portraits/men/1.jpg",
       description:
         "AI powered asssistant providing empathic support and guidance",
       url: "https://www.edquest.com/johndoe",
     },
     {
-      name: "Hotel Booking Assistant",
+      name: "VoiceBot",
       src: "https://randomuser.me/api/portraits/women/2.jpg",
       description: "Streamlining workflows with intelligent automation",
       url: "https://www.edquest.com/janesmith",
     },
     {
-      name: "Invoice Extractor",
+      name: "VoiceInsights",
       src: "https://randomuser.me/api/portraits/men/3.jpg",
       description:
         "AI powered asssistant providing empathic support and guidance",
       url: "https://www.edquest.com/alexjohnson",
     },
     {
-      name: "Sound Script",
+      name: "InvoiceParser",
       src: "https://randomuser.me/api/portraits/women/4.jpg",
       description:
         "AI powered asssistant providing empathic support and guidance",

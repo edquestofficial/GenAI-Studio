@@ -16,7 +16,7 @@ const Box = ({ name, src, description, url }) => {
             <img
               src={src}
               alt={name}
-              className="w-24 max-h-full object-contain"
+              className="max-w-ful max-h-full object-contain"
             />
           </div>
           <div className="p-6 bg-blue-100 h-1/2 w-full flex flex-col justify-between">
