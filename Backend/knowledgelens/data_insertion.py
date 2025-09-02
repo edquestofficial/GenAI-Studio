@@ -30,7 +30,7 @@ def upload_documents_to_pinecone(index_name, pdf_path):
     embed_model = HuggingFaceEmbeddings() 
 
   
-    if not pc.has_index(index_name):
+    if index_name not in pc.list_indexes().names():
         print(f"Creating Pinecone index '{index_name}' with dimension 768...")
         pc.create_index(
             name=index_name,
@@ -40,15 +40,16 @@ def upload_documents_to_pinecone(index_name, pdf_path):
         print("Index created successfully.")
     else:
         print(f"Skipping index creation. Index '{index_name}' already exists.")
-
-    vectors_to_upsert = []
-    for i, chunk in enumerate(chunks):
-        embedding = embed_model.embed_query(chunk.page_content)
-        vectors_to_upsert.append({
-            "id": str(i),
-            "values": embedding,
-            "metadata": {"chunk_text": chunk.page_content}
-        })
+    
+    embeddings = embed_model.embed_documents([chunk.page_content for chunk in chunks])
+    vectors_to_upsert = [
+    {
+        "id": str(i),
+        "values": embeddings[i],
+        "metadata": {"chunk_text": chunks[i].page_content}
+    }
+    for i in range(len(chunks))
+]
 
     dense_index = pc.Index(index_name)
     dense_index.upsert(vectors_to_upsert)

@@ -12,7 +12,7 @@ const Footer = () => {
           Blog
         </a>
       </div>
-
+  
       {/* Social Icons */}
       <div className="flex space-x-4">
         <a href="https://github.com/edquestofficial" target="_blank" rel="noopener noreferrer">

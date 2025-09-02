@@ -8,7 +8,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
 
   const projectsData = [
     {
-      name: "KnowledgeLens",
+      name: "Knowledge Lens",
       src: "https://randomuser.me/api/portraits/men/1.jpg",
       description:
         "AI powered asssistant providing empathic support and guidance",

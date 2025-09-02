@@ -7,10 +7,15 @@ requires-python = ">=3.13"
 dependencies = [
     "dotenv>=0.9.9",
     "fastapi>=0.116.1",
+    "fastapi-middleware>=0.2.1",
+    "gradio>=5.44.0",
+    "langchain>=0.3.27",
     "langchain-community>=0.3.29",
+    "langchain-google-genai>=2.1.10",
     "langchain-huggingface>=0.3.1",
     "pinecone>=7.3.0",
     "pypdf>=6.0.0",
     "pypdf2>=3.0.1",
+    "python-multipart>=0.0.20",
     "sentence-transformers>=5.1.0",
 ]

@@ -1,167 +1,94 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Sidebar from "./Sidebar";
-import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-const MentalHealthSupport = () => {
-  const [activeTab, setActiveTab] = useState("About");
+const Detail = () => {
+  const [agents, setAgents] = useState([]);
   const [isOpen, setIsOpen] = useState(true);
+  const navigate = useNavigate();
 
-  const location = useLocation();
-  const { name } = location.state || {}; // Access the state passed through the Link
+  useEffect(() => {
+    fetch("http://localhost:8000/knowledgelens/agents")
+      .then((res) => res.json())
+      .then((data) => {
+        // backend may return [] or { agents: [...] }
+        const list = Array.isArray(data) ? data : data?.agents || [];
+        setAgents(list);
+      })
+      .catch((err) => console.error("Error fetching agents:", err));
+  }, []);
+
+  const handleCreateClick = () => {
+    navigate("/create-agent");
+  };
+
+  const openChat = (name) => {
+    navigate(`/chat/${encodeURIComponent(name)}`);
+  };
 
   return (
-    <div className="bg-gray-50 min-h-screen w-full">
-      <div className="w-full bg-white rounded shadow-md flex gap-1">
-        <div style={{ width: isOpen ? "25%" : "5%" }}>
-          {!isOpen && (
-            <button
-              className="p-3 bg-blue-500 text-white rounded-md flex items-center justify-center"
-              onClick={() => setIsOpen(true)}
-              aria-label="Open Sidebar"
+    <div className="flex h-screen bg-gray-50">
+      {/* Sidebar stays intact here */}
+      <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />
+
+      {/* Main Content */}
+      <div className="flex-1 p-6 overflow-y-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {/* Create New Agent */}
+          <div
+            onClick={handleCreateClick}
+            className="flex flex-col items-center justify-center bg-sky-100 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer p-10 h-64"
+          >
+            <div className="text-xl font-semibold text-gray-800 mb-4">
+              Create your own AI Agent
+            </div>
+            <div className="text-6xl text-blue-500 font-bold">+</div>
+          </div>
+
+          {/* Existing Agents */}
+          {agents.map((agent, idx) => (
+            <div
+              key={`${agent.agent_name}-${idx}`}
+              className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition cursor-pointer"
+              onClick={() => openChat(agent.agent_name)}
+              title="Open Chat"
             >
-              {/* Hamburger menu icon */}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <rect x="4" y="6" width="16" height="2" rx="1" />
-                <rect x="4" y="11" width="16" height="2" rx="1" />
-                <rect x="4" y="16" width="16" height="2" rx="1" />
-              </svg>
-            </button>
-          )}
-          <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />
-        </div>
-        <div style={{ width: isOpen ? "75%" : "95%" }} className="relative">
-          <div className="m-2 p-3 border-b border-gray-200">
-            <h1 className="text-2xl font-semibold text-gray-800">
-              {name}
-            </h1>
-            <div className="mt-4 flex space-x-2">
-              <span className="px-4 py-1 rounded-full bg-blue-100 text-blue-600 text-sm font-medium">
-                Assistant
-              </span>
-              <span className="px-4 py-1 rounded-full bg-blue-100 text-blue-600 text-sm font-medium">
-                AI
-              </span>
-              <span className="px-4 py-1 rounded-full bg-blue-100 text-blue-600 text-sm font-medium">
-                RAG
-              </span>
+              <h3 className="text-lg font-bold text-gray-800">{agent.agent_name}</h3>
+              <p className="mt-2 text-gray-600 text-sm line-clamp-3">
+                {agent.agent_persona}
+              </p>
+              {/* Delete Button */}
+                <button
+                  onClick={async (e) => {
+                    e.stopPropagation(); // prevent card click
+                    if (window.confirm(`Delete agent "${agent.agent_name}"?`)) {
+                      try {
+                        const res = await fetch(
+                          `http://localhost:8000/knowledgelens/agents/${encodeURIComponent(agent.agent_name)}`,
+                          { method: "DELETE" }
+                        );
+                        if (!res.ok) throw new Error("Delete failed");
+                        // Remove from state to update UI
+                        setAgents((prev) =>
+                          prev.filter((a) => a.agent_name !== agent.agent_name)
+                        );
+                        alert("Agent deleted successfully!");
+                      } catch (err) {
+                        console.error(err);
+                        alert("Failed to delete agent.");
+                      }
+                    }
+                  }}
+                  className="mt-2 px-2 py-1 bg-red-500 text-white rounded text-sm hover:bg-red-600"
+                >
+                  Delete
+                </button>
             </div>
-          </div>
-
-          {/* Video/Image Placeholder */}
-          <div className="m-2 p-3 flex justify-center items-center">
-            <div className="w-full h-64 bg-gray-100 rounded flex justify-center items-center">
-              <div className="space-y-2 text-gray-300 text-center">
-                <div className="h-6 w-48 bg-gray-200 rounded"></div>
-                <div className="h-4 w-36 bg-gray-200 rounded"></div>
-                <div className="h-4 w-40 bg-gray-200 rounded"></div>
-                <div className="h-4 w-32 bg-gray-200 rounded"></div>
-              </div>
-            </div>
-          </div>
-
-          {/* Live Badge */}
-          <div className="absolute top-6 right-6">
-            <span className="px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-medium">
-              Live
-            </span>
-          </div>
-
-          {/* Tab Navigation */}
-          <div className="m-2 p-3 border-t border-gray-200">
-            <div className="flex space-x-6">
-              <button
-                className={`px-4 py-2 text-sm font-medium ${
-                  activeTab === "About"
-                    ? "border-b-2 border-blue-500 text-blue-600"
-                    : "text-gray-600"
-                }`}
-                onClick={() => setActiveTab("About")}
-              >
-                About
-              </button>
-              <button
-                className={`px-4 py-2 text-sm font-medium ${
-                  activeTab === "How to Use"
-                    ? "border-b-2 border-blue-500 text-blue-600"
-                    : "text-gray-600"
-                }`}
-                onClick={() => setActiveTab("How to Use")}
-              >
-                How to Use
-              </button>
-              <button
-                className={`px-4 py-2 text-sm font-medium ${
-                  activeTab === "Tech Stack"
-                    ? "border-b-2 border-blue-500 text-blue-600"
-                    : "text-gray-600"
-                }`}
-                onClick={() => setActiveTab("Tech Stack")}
-              >
-                Tech Stack
-              </button>
-            </div>
-          </div>
-
-          {/* Tab Content */}
-          <div className="m-2 p-3 bg-gray-50" style={{ marginLeft: "30px" }}>
-            {activeTab === "About" && (
-              <div>
-                <h2 className="text-lg font-semibold text-gray-800">
-                  Project Overview
-                </h2>
-                <p className="text-gray-600 mt-4">
-                  The Mental Health Support project is designed to provide
-                  cutting-edge AI-powered mental wellness assistant, offering
-                  personalized coping strategies. It leverages advanced AI
-                  models to deliver highly accurate and efficient solutions,
-                  transforming how users interact with assistant-driven systems.
-                  Our goal is to create intuitive and powerful tools that
-                  enhance productivity and user experience.
-                </p>
-                <h3 className="text-lg font-semibold text-gray-800 mt-6">
-                  Key Features
-                </h3>
-                <ul className="list-disc pl-6 text-gray-600 mt-4 space-y-2">
-                  <li>Real-time processing for immediate results.</li>
-                  <li>Seamless integration with existing workflows.</li>
-                  <li>Scalable architecture to meet evolving demands.</li>
-                  <li>Robust security measures to protect user data.</li>
-                </ul>
-              </div>
-            )}
-            {activeTab === "How to Use" && (
-              <div>
-                <h2 className="text-lg font-semibold text-gray-800">
-                  How to Use
-                </h2>
-                <p className="text-gray-600 mt-4">
-                  Information on how to use the Mental Health Support
-                  application will be available here.
-                </p>
-              </div>
-            )}
-            {activeTab === "Tech Stack" && (
-              <div>
-                <h2 className="text-lg font-semibold text-gray-800">
-                  Tech Stack
-                </h2>
-                <p className="text-gray-600 mt-4">
-                  Details about the project&apos;s technology stack will be
-                  available here.
-                </p>
-              </div>
-            )}
-          </div>
+          ))}
         </div>
       </div>
     </div>
   );
 };
 
-export default MentalHealthSupport;
+export default Detail;

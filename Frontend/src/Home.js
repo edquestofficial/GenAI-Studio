@@ -5,8 +5,8 @@ const Home = () => {
     const projectsData = [
         {
             name: "KnowledgeLens",
-            src: "knowledge.png",
-            description: "AI powered asssistant providing empathic support and guidance",
+            src: "expert.png",
+            description: "Create your own AI agents for personalized assistance",
             url: "https://www.edquest.com/johndoe"
         },
         {
