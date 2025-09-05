@@ -3,8 +3,16 @@ import { Link } from "react-router-dom";
 
 const Box = ({ name, src, description, url }) => {
   const dataToPass = { name, src, description, url };
+  console.log(dataToPass)
+  let TO
+  if (dataToPass.name === "VoiceInsights") {
+    TO = "http://localhost:3000/login"
+  }else{
+    TO = "/detail"
+  }
+
   return (
-    <Link to="/detail" state={dataToPass}>
+    <Link to={TO} state={dataToPass}>
       <div
         className="w-80 h-[350px] max-w-sm mx-auto border-2 border-blue-100 rounded-lg shadow-lg m-4"
         style={{

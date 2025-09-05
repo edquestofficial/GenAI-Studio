@@ -1,0 +1,8 @@
+.login-container {
+    background: var(--card-bg);
+    padding: 35px 70px;
+    /* width: 40%; */
+    box-shadow: 0 2px 8px var(--shadow-light);
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 40px;
+}

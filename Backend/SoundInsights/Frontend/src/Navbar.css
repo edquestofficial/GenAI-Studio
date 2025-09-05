@@ -1,0 +1,41 @@
+/* Header Styling */
+.App-header {
+    background: var(--card-bg);
+    padding: 15px 30px;
+    width: 100%;
+    box-shadow: 0 2px 8px var(--shadow-light);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+    /* Space before the main content container */
+}
+
+.navbar-center .nav-links {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-center .nav-links li {
+    margin-right: 1rem;
+}
+
+.navbar-center .nav-links a {
+    color: var(--text-dark);
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    .App-header {
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .App-header {
+        padding: 8px 15px;
+    }
+}

@@ -1,0 +1,96 @@
+/* Center the input + upload section */
+.input-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem auto;
+  max-width: 600px;
+  text-align: center;
+}
+
+/* Company Name Row */
+.company-input-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.company-label {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #333;
+  white-space: nowrap;
+}
+
+.company-input-box {
+  flex: 1;
+  max-width: 350px;
+  padding: 10px 14px;
+  border: 1.5px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.company-input-box:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.3);
+}
+
+/* Upload Box */
+.upload-box {
+  border: 2px dashed #bbb;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  transition: border-color 0.3s ease, background 0.3s ease;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.upload-box:hover {
+  border-color: #007bff;
+  background: #f9fbff;
+}
+
+
+.analysis-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  margin-top: 20px;
+  flex-wrap: wrap; /* ✅ makes it responsive */
+}
+
+.analysis-card {
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.box-title {
+  display: flex;
+  justify-content: space-between; /* ✅ pushes download icon to right */
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.download-icons {
+  cursor: pointer;
+  color: #007bff;
+  font-size: 18px;
+}
