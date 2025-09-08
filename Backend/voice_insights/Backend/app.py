@@ -16,7 +16,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
 @app.get("/")
 def root():
     return {"message": "Backend connected"}
@@ -26,5 +25,3 @@ app.include_router(router)
 app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
 
 main = app
-
-

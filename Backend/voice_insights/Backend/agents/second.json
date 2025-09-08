@@ -1,0 +1,63 @@
+{
+  "agent_name": "Second",
+  "agent_persona": "Plays",
+  "audios": [
+    {
+      "audio_path": "uploads\\How are you.mp3",
+      "transcription": " Hello, David. How are you today?  I'm good, thank you. How are you?  I'm fine, too. What are you up to?  Not much, just work. And you?  Same. Busy with work.  It was great talking to you.  It was very nice talking to you, too.  See you around, Sarah.  Bye.",
+      "duration": "0 minutes and 32 seconds",
+      "summary": {
+        "opening_and_introduction": "Pleasantries, very casual.",
+        "need_discovery_and_qualification": "Nonexistent, zero probing.",
+        "product_knowledge_distribution": "Nada, zip, zilch.",
+        "offer_presentation_and_value_communication": "Absolutely none given.",
+        "objection_handling": "No objections surfaced.",
+        "closing_and_next_steps": "Polite but pointless.",
+        "call_professionalism": "Relaxed, maybe too much.",
+        "sentiment_analysis": {
+          "sentiment": "Neutral",
+          "justification": "Polite exchange but devoid of business."
+        },
+        "plain_summary": "Okay, that was...a chat. More like two pals catching up than any kind of sales call. We swapped 'how are yous' and 'busy with work' like seasoned pros, then bailed. No product talk, no offers, just a breezy 'see ya!' Seriously, where's the *play*? Needs some serious game injected. Like, ANY game."
+      }
+    },
+    {
+      "audio_path": "uploads\\audio1.mp3",
+      "transcription": " Dr. Silver's office  Oh, I thought you opened at 10 o'clock a.m.  But my wife said to try earlier.  She was right. I was going to call you at lunch.  Yes, people are always surprised that we are here so early.  How can I help you, sir?  I'd like to make an appointment to have a check-up, please.  Okay, could I have your name, please?  Yes, my name is Ian Conley.  Mr. Conley, how about the day after tomorrow at 9.30?  Um, would you have anything in the afternoon?  I have a meeting Thursday morning.  Okay, we do have an opening that afternoon at 4.  Would that be good for you?  Yes, that would be just fine.  Okay, Mr. Conley, while I have you on the line, could I just check a few things?  Sure.  Is your address still 2354 Locklear Street, apartment 11?  Actually, ma'am, it's number 17.  Okay, I'll change that.  And your phone number? Is it 2334027?  Yes, it is.  Thank you, Mr. Conley.  Okay.  All right, I'll have you down for 4 o'clock on Thursday afternoon.  Thanks. See you then.  Bye.",
+      "duration": "1 minutes and 4 seconds",
+      "summary": {
+        "opening_and_introduction": "Early bird catches...",
+        "need_discovery_and_qualification": "Check-up quest initiated",
+        "product_knowledge_distribution": "Time slots dispensed",
+        "offer_presentation_and_value_communication": "Afternoon delight secured!",
+        "objection_handling": "Schedule shuffle success",
+        "closing_and_next_steps": "Thursday 4pm: mission!",
+        "call_professionalism": "Polite, efficient appointment",
+        "sentiment_analysis": {
+          "sentiment": "Positive",
+          "justification": "Both parties were cooperative and the call resulted in a successful appointment booking."
+        },
+        "plain_summary": "Alright! Got Mr. Conley hooked up for a Thursday arvo check-up. Quick address update and we're all set. Easy peasy, lemon squeezy! See ya then!"
+      }
+    },
+    {
+      "audio_path": "uploads\\https___dorwaczn73jqg.cloudfront.net_call-recording_203785_a1a717720b3f28c5a65a42fcf033389f.mp3",
+      "transcription": " हेलो अजय को good evening good evening so मैंने reminder के लिए call किया था next 15 min हमारा doctor  project है ठीक हा ठीक है तो आपको ज़यादा पढ़ाते हैं ठीक है ना सिक्स हां जी हां जी अबी है 15 min तो आप 15 min पर join कर लेना जी  ओके sir thank you bye",
+      "duration": "0 minutes and 23 seconds",
+      "summary": {
+        "opening_and_introduction": "Polite greeting, reminder",
+        "need_discovery_and_qualification": "Not applicable",
+        "product_knowledge_distribution": "Not applicable",
+        "offer_presentation_and_value_communication": "Not applicable",
+        "objection_handling": "Not applicable",
+        "closing_and_next_steps": "Confirmation and bye",
+        "call_professionalism": "Professional and brief",
+        "sentiment_analysis": {
+          "sentiment": "Neutral",
+          "justification": "The call is a short reminder about a project with no emotional tone."
+        },
+        "plain_summary": "A brief reminder call about joining a project meeting in 15 minutes."
+      }
+    }
+  ]
+}
