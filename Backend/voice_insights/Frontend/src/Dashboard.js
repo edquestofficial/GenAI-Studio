@@ -1,59 +1,97 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import CreateAgentModal from "./CreateAgentModal";
 import "./Dashboard.css";
 
 function Dashboard() {
-  const [projects, setProjects] = useState([]);
+  const [agents, setAgents] = useState([]);
+  const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-  fetch("http://localhost:8000/companies")
-    .then((res) => res.json())   // return JSON here
-    .then((data) => {
-      console.log(data);         // log actual data
-      setProjects(data);         // update state
-    })
-    .catch((err) => console.error(err));
-}, []);
+    fetchAgents();
+  }, []);
 
-  const handleCreate = () => {
-    navigate("upload"); // go to SoundScript Upload UI
+  const fetchAgents = async () => {
+    try {
+      const res = await fetch("http://localhost:8000/agents");
+      const data = await res.json();
+
+      const agentsList = data.agents || []; // ✅ safe fallback
+
+      const normalized = agentsList.map((agent) => ({
+        id: agent.agent_name,
+        agent_name: agent.agent_name,
+        agent_persona: agent.agent_persona,
+        agent_report : agent.agent_report,
+      }));
+      setAgents(normalized);
+    } catch (err) {
+      console.error("Error fetching agents:", err);
+    }
+  };
+
+  const handleSaveAgent = async (newAgent) => {
+    const formattedAgent = {
+      agent_name: newAgent.agent_name || newAgent.name,
+      agent_persona: newAgent.agent_persona || newAgent.persona,
+    };
+
+    try {
+      // ✅ save agent to backend
+      await fetch("http://localhost:8000/agents", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formattedAgent),
+      });
+
+      setAgents((prev) => [...prev, formattedAgent]);
+    } catch (err) {
+      console.error("Error saving agent:", err);
+    }
   };
 
   return (
     <div className="dashboard">
-      <h1>Your Transcriptions</h1>
-      <div className="card-container">
-        <div className="card create-card" onClick={handleCreate}>
-          <h3>Transcribe your audio</h3>
-          <span className="plus">+</span>
-        </div>
-        {projects.map((p, index) => (
-          <div key={index} className="card">
-            <h3>{p.company_name}</h3>
-            {p.audioFiles && p.audioFiles.length > 0 ? (
-                <ul className="file-list">
-            {p.audioFiles.map((file, idx) => (
-                <li key={idx}>
-                <a
-                href={`http://localhost:8000/${file.replace(/\\/g, "/")}`}
-                target="_blank"
-                rel="noreferrer"
-                >
-                {`File ${idx + 1}`}
-                </a>
-                </li>
-            ))}
-                </ul>
-            ) : (
-                <p>No files uploaded</p>
-            )}
+      <div className="main-content">
+        <div className="agents-grid">
+          {/* Create Agent card */}
+          <div
+            className="create-agent-card"
+            onClick={() => setShowModal(true)}
+          >
+            <h3>Create your own AI Agent</h3>
+            <div className="plus">+</div>
+          </div>
+
+          {/* Render all agents */}
+          {agents.map((agent) => (
+            <div key={agent.id} className="agent-card">
+              <div className="agent-avatar">🤖</div>
+              <h4 className="agent-name">{agent.agent_name}</h4>
+              <p className="agent-persona">{agent.agent_persona}</p>
+              <button
+                className="view-agent-btn"
+                onClick={() =>
+                  navigate(`/agents/${agent.agent_name}`, { state: { agent } })
+                }
+              >
+                View Details →
+              </button>
             </div>
-        ))}
-        
+          ))}
+        </div>
       </div>
+
+      {showModal && (
+        <CreateAgentModal
+          onClose={() => setShowModal(false)}
+          onSave={handleSaveAgent}
+        />
+      )}
     </div>
   );
 }
 
 export default Dashboard;
+

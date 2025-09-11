@@ -1,0 +1,141 @@
+Dashboard container
+.dashboard {
+  flex: 1;
+  background: #f9fafb;
+  padding: 30px;
+  overflow-y: auto;
+}
+
+/* Main content */
+.main-content {
+  width: 100%;
+}
+
+/* Grid for cards */
+.agents-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+/* Create Agent Card */
+.create-agent-card {
+  background: #e0f2fe;
+  padding: 40px 20px;
+  border-radius: 12px;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.create-agent-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.create-agent-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #111827;
+}
+
+.create-agent-card .plus {
+  font-size: 2rem;
+  color: #2563eb;
+  font-weight: bold;
+}
+
+
+.agent-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.agent-avatar {
+  font-size: 2rem;
+  background: #f3f4f6;
+  padding: 15px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.agent-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.agent-persona {
+  font-size: 0.95rem;
+  color: #6b7280;
+  margin: 8px 0;
+}
+
+.agent-card {
+  background: rgb(190, 218, 223);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  z-index: 1; /* ensures button is clickable */
+}
+
+.view-agent-btn {
+  margin-top: auto; /* stick button at bottom */
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  background: #3b82f6;
+  color: white;
+  cursor: pointer;
+  z-index: 2; /* ensure it's above card content */
+  position: relative;
+}
+
+
+.view-agent-btn:hover {
+  background: #2563eb;
+}
+
+/* Layout wrapper */
+.dashboard-layout {
+  display: flex;
+  height: 100vh;
+  background: #f9fafb;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* Sidebar (comes from Sidebar.js) */
+.sidebar {
+  width: 260px;
+  background: #ffffff;
+  border-right: 1px solid #e5e7eb;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Main content takes the rest */
+.main-content {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+}
+
+/* Ensure grid behaves correctly */
+.agents-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+  align-items: stretch; /* makes cards equal height */
+}
+
+/* Fix click issues by ensuring proper stacking */
+.agent-card,
+.create-agent-card {
+  position: relative;
+  z-index: 1;
+}

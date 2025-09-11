@@ -8,6 +8,7 @@ import RequireAuth from "./RequireAuth";
 import useAuth from "./useAuth";
 import Dashboard from "./Dashboard";
 import "./App.css";
+import AgentDetail from "./AgentDetail";
 
 function App() {
   const { authed } = useAuth();
@@ -17,15 +18,17 @@ function App() {
       {authed && <Navbar />}
       <div className="mt-2">
         <Routes>
-          {/* Protected Route */}
+          {/* Protected Routes */}
           <Route
             path="/"
             element={
               <RequireAuth>
-                <Dashboard /> {/* Landing page after login */}
+                <Dashboard />
               </RequireAuth>
             }
           />
+          
+          <Route path="/agents/:agent_name" element={<AgentDetail />} />
           <Route
             path="/upload"
             element={
@@ -34,7 +37,6 @@ function App() {
               </RequireAuth>
             }
           />
-
           {/* Public Route */}
           <Route path="/login" element={<Login />} />
         </Routes>
@@ -43,4 +45,4 @@ function App() {
   );
 }
 
-export default App; // ✅ default export
+export default App;

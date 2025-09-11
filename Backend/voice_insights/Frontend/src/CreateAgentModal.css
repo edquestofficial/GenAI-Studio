@@ -1,0 +1,97 @@
+/* Background overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Stitch-style card */
+.modal-stitch-card {
+  background: #f6f2f2;
+  border: 2px dashed #d4b996; /* stitched look */
+  border-radius: 16px;
+  padding: 25px 30px;
+  width: 420px;
+  max-width: 95%;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.25);
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Title */
+.modal-title {
+  margin-bottom: 20px;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+}
+
+/* Form */
+.modal-form label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: 600;
+  color: #444;
+}
+
+.modal-form input,
+.modal-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #e0cfa9;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  font-size: 14px;
+  background: #faf9f6;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.modal-form input:focus,
+.modal-form textarea:focus {
+  outline: none;
+  border-color: #c49b63;
+  background: #fffefb;
+}
+
+/* Actions */
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.cancel-btn,
+.save-btn {
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.cancel-btn {
+  background: #eee;
+  color: #333;
+}
+
+.cancel-btn:hover {
+  background: #ddd;
+}
+
+.save-btn {
+  background: #3a86e2;
+  color: rgb(0, 0, 0);
+  border: 2px solid #96cee1;
+}
+
+.save-btn:hover {
+  background: #5ea8f1;
+}

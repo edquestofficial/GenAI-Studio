@@ -9,17 +9,19 @@ const Home = () => {
             description: "Create your own AI agents for personalized assistance",
             url: "https://www.edquest.com/johndoe"
         },
-        {
-            name: "VoiceBot",
-            src: "voicebot.png",
-            description: "Streamlining workflows with intelligent automation",
-            url: "https://www.edquest.com/janesmith"
-        },
+        
         {
             name: "VoiceInsights",
             src: "voiceinsight.png",
             description: "AI powered asssistant providing empathic support and guidance",
             url: "https://www.edquest.com/alexjohnson"
+        },
+
+        {
+            name: "VoiceBot",
+            src: "voicebot.png",
+            description: "Streamlining workflows with intelligent automation",
+            url: "https://www.edquest.com/janesmith"
         },
         {
             name: "InvoiceParser",
