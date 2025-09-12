@@ -38,7 +38,7 @@ frontend/
 
 ## Architechture Diagram
 
-![Knowledge Lens Architecture](C:\Users\hi\Desktop\GenAI Studio\GenAI-Studio\Frontend\public\Knowledge Lens Architecture.png)
+![Knowledge Lens Architecture](Public/Knowledge%20Lens%20Architecture.png)
 
 ## Installation
 
