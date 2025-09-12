@@ -21,12 +21,19 @@ It allows you to create, manage, and interact with AI chatbots powered by **Lang
 ##  Project Structure
 
 backend/
+
 │── agents.py                    # Agent creation and management logic
+
 │── data_insertion.py            # Uploads documents to Pinecone
+
 │── semantic_search.py           # Handles RAG / semantic search
+
 │── main.py (API file)           # FastAPI app with endpoints
+
 │── agents.json                  # Stores all agent metadata
+
 │── uploads/                     # Stores uploaded PDFs/images
+
 │── pyproject.toml               # Contains all the dependencies
 
 
@@ -64,7 +71,9 @@ uv pip install .
 3. Set up environment variables in .env:
 
 PINECONE_API_KEY= "your_pinecone_api_key"
+
 PINECONE_ENV=us-east1-gcp
+
 GEMINI_API_KEY = "your_google_gemini_api_key"
 
 4. Running the server
@@ -75,35 +84,34 @@ uvicorn main:app --reload
 
 ## API Endpoints
 
-1. Creates an agent
-
-POST /knowledgelens/saves_agents
+1. Creates an agent - POST /knowledgelens/saves_agents
 
 Form-data:
 
 agent_name: string
+
 agent_persona: string
+
 document: file (PDF)
+
 agent_profile_image: file (optional)
 
-2. Deletes agent metadata from agents.json
+2. Deletes agent metadata from agents.json - DELETE /knowledgelens/agents/{agent_name}
 
-DELETE /knowledgelens/agents/{agent_name}
+3. Chat with Agent - POST /knowledgelens/chat
 
-3. Chat with Agent
-
-POST /knowledgelens/chat
-
-4. Get the list of all the agents
-
-@app.get("/knowledgelens/agents")
+4. Get the list of all the agents - GET/knowledgelens/agents
 
 ## Tech Stack
 
 FastAPI
+
 LangChain
+
 Pinecone
+
 HuggingFace Embeddings
+
 PyPDFLoader
 
 
