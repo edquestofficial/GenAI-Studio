@@ -1,5 +1,5 @@
 
-# 💻 KnowledgeLens Frontend
+# KnowledgeLens Frontend
 
 This is the frontend for the **KnowledgeLens AI Agent Platform**. It provides a simple UI for creating, managing, and chatting with AI-powered agents.
 
@@ -17,13 +17,21 @@ This is the frontend for the **KnowledgeLens AI Agent Platform**. It provides a 
 ##  Project Structure
 
 frontend/
+
 │── src/
-│ ├── Detail.js      
+
+│ ├── Detail.js 
+
 │ ├── ChatPage.js
+
 │ ├── Form.js
+
 │ └── App.js # App entry point
+
 │── public/
+
 │── package.json
+
 │── README.md
 
 ## Workflow
@@ -38,7 +46,7 @@ frontend/
 
 ## Architechture Diagram
 
-![Knowledge Lens Architecture](Public/Knowledge%20Lens%20Architecture.png)
+![Knowledge Lens Architecture](public/Knowledge%20Lens%20Architecture.png)
 
 ## Installation
 
@@ -61,6 +69,7 @@ npm start
 ## Tech Stack
 
 React
+
 TailwindCSS
 
 
