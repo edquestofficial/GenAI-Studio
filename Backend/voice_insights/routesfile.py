@@ -74,21 +74,6 @@ async def get_transcriptions(agent_name: str):
         data = json.load(f)
     return data.get("audios", [])
 
-# @router.get("/agents/{agent_name}/transcriptions")
-# async def get_transcriptions(agent_name: str):
-#     safe_name = re.sub(r'[^a-zA-Z0-9_-]', '_', agent_name.lower())
-#     agent_file = os.path.join(AGENTS_DIR, f"{safe_name}.json")
-
-#     if not os.path.exists(agent_file):
-#         return JSONResponse(content={"error": f"Agent '{agent_name}' not found"}, status_code=404)
-
-#     with open(agent_file, "r", encoding="utf-8") as f:
-#         agent_data = json.load(f)
-
-#     return agent_data.get("audios", [])
-
-
-
 # --- Audio Routes ---
 @router.post("/audio/transcribe")
 async def transcribe_audio(agent_name: str = Form(...), audio: UploadFile = File(...)):
