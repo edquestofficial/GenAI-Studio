@@ -85,4 +85,4 @@ This will open the application in your default web browser, usually at http://lo
 
 #### Architecture Daigram ###############################
 
-![Architecture](Docs/Voice Insights Architecture Diagram.png)
+![Architecture](Docs/Voice_Insights_Architecture_Diagram.png)

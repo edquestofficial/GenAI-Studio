@@ -132,4 +132,4 @@ The backend provides the following endpoints:
 
 ##### Architecture Digram ####
 
-![Architecture](assets/Architecture Diagram.png)
+![Architecture](images/Architecture_Diagram.png)
