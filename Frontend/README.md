@@ -1,70 +1,67 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 💻 KnowledgeLens Frontend
 
-## Available Scripts
+This is the frontend for the **KnowledgeLens AI Agent Platform**. It provides a simple UI for creating, managing, and chatting with AI-powered agents.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+##  Features
+- Upload documents and create new AI agents
+- View all saved agents
+- Chat with agents using their knowledge base
+- Delete agents (removes from backend)
+- Modern responsive UI
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+##  Project Structure
 
-### `npm test`
+frontend/
+│── src/
+│ ├── Detail.js      
+│ ├── ChatPage.js
+│ ├── Form.js
+│ └── App.js # App entry point
+│── public/
+│── package.json
+│── README.md
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Workflow
 
-### `npm run build`
+1. Select or create an Agent. Add a name, persona and add the analytics you want to know from the audio file, in agent report.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Upload audio file → sent to FastAPI backend
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. Receive transcription + AI summary
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. View structured analytics
 
-### `npm run eject`
+## Architechture Diagram
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![Knowledge Lens Architecture](C:\Users\hi\Desktop\GenAI Studio\GenAI-Studio\Frontend\public\Knowledge Lens Architecture.png)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Installation
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. Go to Frontend Directory
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+cd GenAI-Studio/Frontend
+```
 
-## Learn More
+2. Install Dependencies
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+npm install
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+3. Start Development Server
 
-### Code Splitting
+npm start
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+(Make Sure that backend is active)
 
-### Analyzing the Bundle Size
+## Tech Stack
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+React
+TailwindCSS
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
