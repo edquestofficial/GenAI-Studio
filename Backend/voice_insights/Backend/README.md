@@ -32,14 +32,14 @@ cd mvp/SoundScript/Server/
 It's highly recommended to use a virtual environment to manage project dependencies.
 
 ```bash
-python -m venv venv
-source venv/bin/activate # On Windows: .\venv\Scripts\activate
+uv venv
+.venv/bin/activate # On Windows: .\venv\Scripts\activate
 ```
 
 ### Install Python Dependencies:
 
 ```bash
-pip install .
+uv pip install .
 ```
 This will install Flask, Whisper, Google Generative AI, python-dotenv, and Flask-CORS.
 
@@ -84,7 +84,7 @@ and then run the backend server
 python app.py
 ```
 
-The server will typically run on http://127.0.0.1:5000. Keep this terminal open while using the frontend.
+The server will typically run on http://127.0.0.1:8000. Keep this terminal open while using the frontend.
 
 ## API Endpoints
 
